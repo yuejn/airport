@@ -7,6 +7,23 @@ class PassengersController < ApplicationController
     @passengers = Passenger.all
   end
 
+  ## RAILS C METHODS
+
+  ## MAP PASSENGERS FOR VALIDATION
+  def get_passenger_ids
+    @passengers = Passenger.all.map(&:id)
+  end
+
+  ## MAP FLIGHT DESTINATIONS FOR VALIDATION
+  def get_flight_destinations
+    @flights = Flight.all.map(&:destination)
+  end
+
+  ## MAP TICKETS FOR VALIDATION
+  def get_ticket_ids
+    @tickets = Ticket.all.map(&:id)
+  end
+
   # GET /passengers/1
   # GET /passengers/1.json
   def show
