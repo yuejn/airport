@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  resources :luggages
+
   resources :tickets
 
   resources :flights
