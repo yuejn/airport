@@ -12,12 +12,27 @@
   <% end %>
 
   <div class="field">
-    <%= f.label :flight_no %><br>
-    <%= f.number_field :flight_no %>
+    <%= f.label :flight_no %> / Airport Code<br>
+
+    <%= f.select(:flight_no) do %>
+    <%= @flights = Flight.all %>
+      <% @flights.each do |flight| %>
+        <%= content_tag(:option, flight.destination, value: flight.id) %>
+      <% end %>
+    <% end %>
+
+
   </div>
   <div class="field">
     <%= f.label :passenger_no %><br>
-    <%= f.number_field :passenger_no %>
+
+    <%= f.select(:passenger_no) do %>
+    <%= @passengers = Passenger.all %>
+      <% @passengers.each do |passenger| %>
+        <%= content_tag(:option, passenger.name, value: passenger.id) %>
+      <% end %>
+    <% end %>
+
   </div>
   <div class="actions">
     <%= f.submit %>
