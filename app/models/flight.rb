@@ -1,5 +1,5 @@
 class Flight < ActiveRecord::Base
 
-  validates :destination, length: {maximum: 3}
+  validates :destination, length: { is: 3}
 
 end
