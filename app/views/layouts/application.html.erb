@@ -8,7 +8,19 @@
 </head>
 <body>
 
-<%= yield %>
+<header>
+  <h1>Looney Tunes Air</h1>
+</header>
+
+<div id="content"> 
+  <%= yield %>
+</div>
+
+<footer>
+  <%= link_to 'Passengers', @passenger %>
+  <%= link_to 'Flights', @flight %>
+  <%= link_to 'Tickets', @ticket %>
+</footer>
 
 </body>
 </html>
