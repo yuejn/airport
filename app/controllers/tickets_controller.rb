@@ -69,6 +69,6 @@ class TicketsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def ticket_params
-      params.require(:ticket).permit(:flight_no, :passenger_no)
+      params.require(:ticket).permit(:flight_id, :passenger_id)
     end
 end
