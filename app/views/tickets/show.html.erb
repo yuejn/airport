@@ -1,13 +1,14 @@
 <p id="notice"><%= notice %></p>
 
 <p>
-  <strong>Flight no:</strong>
-  <%= @ticket.flight_no %>
+  <strong>Flight Destination:</strong>
+
+  <%= Flight.find(@ticket.flight_id)[:destination] %>
 </p>
 
 <p>
-  <strong>Passenger no:</strong>
-  <%= @ticket.passenger_no %>
+  <strong>Passenger Name:</strong>
+  <%= Passenger.find(@ticket.passenger_id)[:name] %>
 </p>
 
 <%= link_to 'Edit', edit_ticket_path(@ticket) %> |

@@ -14,11 +14,12 @@
 
   <tbody>
     <% @tickets.each do |ticket| %>
+
       <tr>
-        <td><%= ticket.id %></td>
-        <td><%= Flight.find(ticket.flight_no)[:destination] %> (ID: <%= ticket.flight_no %>)</td>
+        <td class="center">#<%= ticket.id %></td>
+        <td><%= Flight.find(ticket.flight_id)[:destination] %> <span class="small">(ID: <%= ticket.flight_id %>)</span></td>
         <td>
-          <%= Passenger.find(ticket.passenger_no)[:name] %> (ID: <%= ticket.passenger_no %>)</td>
+          <%= Passenger.find(ticket.passenger_id)[:name] %> <span class="small">(ID: <%= ticket.passenger_id %>)</span></td>
         <td><%= link_to 'Show', ticket %></td>
         <td><%= link_to 'Edit', edit_ticket_path(ticket) %></td>
         <td><%= link_to 'Destroy', ticket, method: :delete, data: { confirm: 'Are you sure?' } %></td>
@@ -29,4 +30,7 @@
 
 <br>
 
+<%= link_to 'New Passenger', new_passenger_path %>
+<%= link_to 'New Flight', new_flight_path %>
 <%= link_to 'New Ticket', new_ticket_path %>
+

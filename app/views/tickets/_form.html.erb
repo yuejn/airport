@@ -12,26 +12,18 @@
   <% end %>
 
   <div class="field">
-    <%= f.label :flight_no %> / Airport Code<br>
+    <%= f.label :flight_id %> / Airport Code<br>
 
-    <%= f.select(:flight_no, :style => 'height: 5em') do %>
-    <%= @flights = Flight.all %>
-      <% @flights.each do |flight| %>
-        <%= content_tag(:option, flight.destination, value: flight.id) %>
-      <% end %>
-    <% end %>
+    <%= select("ticket", "flight_id", Flight.all.collect {|p| [ p.destination, p.id ] }, {include_blank: true}) %>
 
 
   </div>
   
   <div class="field">
-    <%= f.label :passenger_no %><br>
-    <%= f.select(:passenger_no) do %>
-    <%= @passengers = Passenger.all %>
-      <% @passengers.each do |passenger| %>
-        <%= content_tag(:option, passenger.name, value: passenger.id) %>
-      <% end %>
-    <% end %>
+    <%= f.label :passenger_id %><br>
+
+    <%= select("ticket", "passenger_id", Passenger.all.collect {|p| [ p.name, p.id ] }, {include_blank: true}) %>
+
   </div>
 
   <div class="actions">
