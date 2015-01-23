@@ -1,14 +1,35 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Name:</strong>
-  <%= @passenger.name %>
-</p>
+<h1>Passenger: <%= @passenger.name %></h1>
 
-<p>
-  <strong>Passport no:</strong>
-  <%= @passenger.passport_no %>
-</p>
+<table>
+  <thead>
+    <tr>
+      <th>ID</th>
+      <th>Name</th>
+      <th>Passport #</th>
+      <th>Associated Tickets</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><%= @passenger.id %></td>
+      <td><%= @passenger.name %></td>
+      <td><%= @passenger.passport_no %></td>
+      <td>
+
+      <% list_tickets = Ticket.where(passenger_id: @passenger.id) %>
+      <% list_tickets.each do |ticket| %>
+
+      
+      <%= link_to "#" + Ticket.find(ticket.id)[:id].to_s, ticket %> to <%= Flight.find(ticket.id)[:destination] %><br>
+      <% end %>
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+
 
 <%= link_to 'Edit', edit_passenger_path(@passenger) %> |
 <%= link_to 'Back', passengers_path %>
