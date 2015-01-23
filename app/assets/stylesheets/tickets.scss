@@ -10,11 +10,6 @@
   opacity: 0.8;
 }
 
-a {
-  background: none;
-  padding: 0.5em;
-}
-
 
 a, tr {
   transition: 0.2s;
@@ -48,6 +43,10 @@ table {
 
   tr.odd {
     background: rgba(244,233,0,0.4);
+  }
+
+  td {
+    vertical-align: top;
   }
 
 }
