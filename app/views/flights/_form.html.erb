@@ -15,6 +15,10 @@
     <%= f.label :destination %><br>
     <%= f.text_field :destination %>
   </div>
+  <div class="field">
+    <%= f.label :departure_date %><br>
+    <%= datetime_select("flight", "departure_date", default: 3.days.from_now) %>
+  </div>
   <div class="actions">
     <%= f.submit %>
   </div>
