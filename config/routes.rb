@@ -5,7 +5,7 @@ Rails.application.routes.draw do
   resources :luggages
 
   resources :tickets
-
+    get "/tickets/new/:id" => 'tickets#new', as: :passenger_ticket
   resources :flights
 
   resources :passengers

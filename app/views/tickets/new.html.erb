@@ -1,4 +1,6 @@
-<h1>New Ticket</h1>
+<% @pid = request.params["id"] %>
+
+<h1>New Ticket<%= !@pid ? '' : ' for ' + Passenger.find(@pid)[:name] %></h1>
 
 <%= render 'form' %>
 

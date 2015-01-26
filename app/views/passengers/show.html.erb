@@ -19,11 +19,12 @@
       <td>
 
       <% list_tickets = Ticket.where(passenger_id: @passenger.id) %>
-      <% list_tickets.each do |ticket| %>
 
-      
+      <% list_tickets.each do |ticket| %>
       <%= link_to "#" + Ticket.find(ticket.id)[:id].to_s, ticket %> to <%= Flight.find(ticket.id)[:destination] %><br>
       <% end %>
+      
+      <%= link_to 'Add New Ticket', passenger_ticket_url(@passenger.id) %>
       </td>
     </tr>
   </tbody>

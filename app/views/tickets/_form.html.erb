@@ -12,9 +12,9 @@
   <% end %>
 
   <div class="field">
-    <%= f.label :flight_id %> / Airport Code<br>
+    <%= f.label :flight_id %><br>
 
-    <%= select("ticket", "flight_id", Flight.all.collect {|p| [ p.destination, p.id ] }, {include_blank: true}) %>
+    <%= select("ticket", "flight_id", Flight.all.collect {|p| [ p.destination + " at "+ p.departure_date.to_s , p.id ] }, { include_blank: true }) %>
 
 
   </div>
@@ -22,8 +22,10 @@
   <div class="field">
     <%= f.label :passenger_id %><br>
 
-    <%= select("ticket", "passenger_id", Passenger.all.collect {|p| [ p.name, p.id ] }, {include_blank: true}) %>
-
+    <%= select("ticket", "passenger_id", 
+    Passenger.all.collect {|p| [ p.name, p.id ] }, 
+    { selected: @pid, include_blank: true }
+    ) %>
   </div>
 
   <div class="actions">
