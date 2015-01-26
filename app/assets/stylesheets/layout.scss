@@ -6,16 +6,10 @@ html, body {
 header, footer {
   padding: 5em 0;
   text-align: center;
-}
-
-header {
   background: rgba(244,233,0, 0.7)
 }
 
 #content {
-  padding: 1em
-}
-
-#content h1 {
-  font-size: 0.9em
+  padding: 1em;
+  min-height: 80vh;
 }
